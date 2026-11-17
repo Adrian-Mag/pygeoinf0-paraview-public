@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygeoinf0-paraview"
+version = "0.1.0"
+description = "Functions on pygeoinf0's domains, split domains and direct sums as VTK files and ready ParaView scenes (a pygeoinf0 plugin)"
+requires-python = ">=3.11"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "Marin Adrian Mag" }]
+dependencies = ["pygeoinf0 @ git+https://github.com/Adrian-Mag/pygeoinf0-public@v0.3.0", "numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.entry-points."pygeoinf0.plugins"]
+paraview = "pygeoinf0_paraview:PLUGIN"
+
+[tool.setuptools.packages.find]
+where = ["src"]
